@@ -1,16 +1,18 @@
 
 import { useState } from 'react';
 
+import '../src/assets/images/card_1.jpg'
+
 const cardImages = [
-  { "src": "/images/card_1.jpg", "alt": "Card 1" }, 
-  { "src": "/images/card_2.jpg", "alt": "Card 2" },
-  { "src": "/images/card_3.jpg", "alt": "Card 3" },
-  { "src": "/images/card_4.jpg", "alt": "Card 4" },
-  { "src": "/images/card_5.jpg", "alt": "Card 5" },
-  { "src": "/images/card_6.jpg", "alt": "Card 6" },
-  { "src": "/images/card_7.jpg", "alt": "Card 7" },
-  { "src": "/images/card_8.jpg", "alt": "Card 8" },
-  { "src": "/images/card_back.jpg", "alt": "Card 9" },
+  { "src": "/src/assets/images/card_1.jpg", "alt": "Card 1" }, 
+  { "src": "/src/assets/images/card_2.jpg", "alt": "Card 2" },
+  { "src": "/src/assets/images/card_3.jpg", "alt": "Card 3" },
+  { "src": "/src/assets/images/card_4.jpg", "alt": "Card 4" },
+  { "src": "/src/assets/images/card_5.jpg", "alt": "Card 5" },
+  { "src": "/src/assets/images/card_6.jpg", "alt": "Card 6" },
+  { "src": "/src/assets/images/card_7.jpg", "alt": "Card 7" },
+  { "src": "/src/assets/images/card_8.jpg", "alt": "Card 8" },
+  { "src": "/src/assets/images/card_back.jpg", "alt": "Card 9" },
 ]
 
 export default function App() {
@@ -34,14 +36,21 @@ export default function App() {
     <>
       <div>
         <h1 className="text-3xl font-bold underline bg-blue-500">
-        Hello world!
+           Memory Game
         </h1>
-        {/* <div>
-          {cardImages.map((card, index) => (
-            <img key={index} src={card.src} alt={card.alt} />
+        <button onClick={shuffleCards}>
+          New Game
+        </button>
+        <div className="grid grid-cols-6 justify-center items-center gap-0 bg-blue-600">
+          {cards.map(card => (
+            <div className="" key={card.id}>
+              <div className=''>
+                <img className="front" src={card.src} alt="card front" />
+                <img className="back"  src="/src/assets/images/card_back.jpg" alt="card back" />
+              </div>
+              </div>
           ))}
-        </div> */}
-        <button onClick={shuffleCards}>New Game</button>
+        </div>
       </div>
     </>
   )
