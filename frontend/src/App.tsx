@@ -2,6 +2,7 @@
 import { useState } from 'react';
 
 import '../src/assets/images/card_1.jpg'
+import SingleCard from './components/SingleCard';
 
 const cardImages = [
   { "src": "/src/assets/images/card_1.jpg", "alt": "Card 1" }, 
@@ -12,7 +13,6 @@ const cardImages = [
   { "src": "/src/assets/images/card_6.jpg", "alt": "Card 6" },
   { "src": "/src/assets/images/card_7.jpg", "alt": "Card 7" },
   { "src": "/src/assets/images/card_8.jpg", "alt": "Card 8" },
-  { "src": "/src/assets/images/card_back.jpg", "alt": "Card 9" },
 ]
 
 export default function App() {
@@ -41,14 +41,9 @@ export default function App() {
         <button onClick={shuffleCards}>
           New Game
         </button>
-        <div className="grid grid-cols-6 justify-center items-center gap-0 bg-blue-600">
+        <div className="grid grid-cols-5 justify-center items-center gap-0 bg-blue-600">
           {cards.map(card => (
-            <div className="" key={card.id}>
-              <div className=''>
-                <img className="front" src={card.src} alt="card front" />
-                <img className="back"  src="/src/assets/images/card_back.jpg" alt="card back" />
-              </div>
-              </div>
+            <SingleCard key={card.id} card={card} />
           ))}
         </div>
       </div>
