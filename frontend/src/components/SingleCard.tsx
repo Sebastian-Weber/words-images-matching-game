@@ -1,5 +1,6 @@
 
 
+
 type CardProps = {
 
   card: {
@@ -14,10 +15,13 @@ type CardProps = {
 
   handleChoice: (card: { id: number; src: string; alt: string; }) => void;
 
+  flipped: boolean;
+
 };
 
 
-export default function SingleCard({ card, handleChoice }: CardProps) {
+
+export default function SingleCard({ card, handleChoice, flipped }: CardProps) {
   
   const handleClick = () => {
     handleChoice(card)
@@ -25,14 +29,17 @@ export default function SingleCard({ card, handleChoice }: CardProps) {
   }
 
   return (
-    <div className="card" key={card.id}>
-      <div>
-        <img className="front rounded-2xl " src={card.src} alt="card.alt" />
+    <div className="card">
+      <div className={flipped ? "flipped" : ""}>
         <img 
-          className="back rounded-2xl" 
+          className="front" 
+          src={card.src} 
+          alt="card front"/>
+        <img 
+          className="back" 
           src="/src/assets/images/card_back.jpg"
-          alt="card back" 
-          onClick={handleClick} />
+          onClick={handleClick}  
+          alt="card back" />
       </div>
     </div>
   )

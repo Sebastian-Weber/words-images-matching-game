@@ -5,19 +5,19 @@ import '../src/assets/images/card_1.jpg'
 import SingleCard from './components/SingleCard';
 
 const cardImages = [
-  { "src": "/src/assets/images/card_1.jpg", "alt": "Card 1" }, 
-  { "src": "/src/assets/images/card_2.jpg", "alt": "Card 2" },
-  { "src": "/src/assets/images/card_3.jpg", "alt": "Card 3" },
-  { "src": "/src/assets/images/card_4.jpg", "alt": "Card 4" },
-  { "src": "/src/assets/images/card_5.jpg", "alt": "Card 5" },
-  { "src": "/src/assets/images/card_6.jpg", "alt": "Card 6" },
-  { "src": "/src/assets/images/card_7.jpg", "alt": "Card 7" },
-  { "src": "/src/assets/images/card_8.jpg", "alt": "Card 8" },
+  { "src": "/src/assets/images/card_1.jpg", matched: false, "alt": "Card 1" }, 
+  { "src": "/src/assets/images/card_2.jpg", matched: false, "alt": "Card 2" },
+  { "src": "/src/assets/images/card_3.jpg", matched: false, "alt": "Card 3" },
+  { "src": "/src/assets/images/card_4.jpg", matched: false, "alt": "Card 4" },
+  { "src": "/src/assets/images/card_5.jpg", matched: false, "alt": "Card 5" },
+  { "src": "/src/assets/images/card_6.jpg", matched: false, "alt": "Card 6" },
+  { "src": "/src/assets/images/card_7.jpg", matched: false, "alt": "Card 7" },
+  { "src": "/src/assets/images/card_8.jpg", matched: false, "alt": "Card 8" },
 ]
 
 export default function App() {
 
-  const [cards, setCards] = useState<{ id: number; src: string; alt: string; }[]>([]);
+  const [cards, setCards] = useState<{ id: number; src: string; alt: string; matched: boolean; }[]>([]);
   const [turns, setTurns] = useState(0);
   const [choiceOne, setChoiceOne] = useState<{ id: number; src: string; alt: string; } | null>(null);
   const [choiceTwo, setChoiceTwo] = useState<{ id: number; src: string; alt: string; } | null>(null);
@@ -44,15 +44,25 @@ const handleChoice = (card: { id: number; src: string; alt: string; }) => {
 // compare 2 selected cards
 useEffect(() => {
   if (choiceOne && choiceTwo) {
+
     if (choiceOne.src === choiceTwo.src) {
-      console.log('those cards match')
+      setCards(prevCards => {
+        return prevCards.map(card => {
+          if (card.src === choiceOne.src) {
+            return { ...card, matched: true }
+          } else {
+          return card
+        }
+      })
+    })
       resetTurn()
     } else {
-      console.log('those cards do not match')
       setTimeout(() => resetTurn(), 1000);
     }
   }
 }, [choiceOne, choiceTwo])
+
+console.log(cards)
 
 
 //reset choices & increase turn
@@ -76,6 +86,7 @@ const resetTurn = () => {
             key={card.id} 
             card={card} 
             handleChoice={handleChoice}
+            flipped={card === choiceOne || card === choiceTwo || card.matched} 
             />
           ))}
         </div>
