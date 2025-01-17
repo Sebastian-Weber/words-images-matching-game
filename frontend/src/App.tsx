@@ -19,6 +19,8 @@ export default function App() {
 
   const [cards, setCards] = useState<{ id: number; src: string; alt: string; }[]>([]);
   const [turns, setTurns] = useState(0);
+  const [choiceOne, setChoiceOne] = useState<{ id: number; src: string; alt: string; } | null>(null);
+  const [choiceTwo, setChoiceTwo] = useState<{ id: number; src: string; alt: string; } | null>(null);
 
   //Shuffle Cards
   const shuffleCards = () => {
@@ -30,7 +32,12 @@ export default function App() {
       setTurns(0);
   }
 
-  console.log(cards, turns);
+// handle a choice
+const handleChoice = (card: { id: number; src: string; alt: string; }) => {
+
+  choiceOne ? setChoiceTwo(card) : setChoiceOne(card);
+  // console.log(card)
+}
 
   return (
     <>
@@ -38,12 +45,15 @@ export default function App() {
         <h1 className="text-3xl font-bold underline bg-blue-500">
            Memory Game
         </h1>
-        <button onClick={shuffleCards}>
-          New Game
-        </button>
-        <div className="grid grid-cols-5 justify-center items-center gap-0 bg-blue-600">
+        <button onClick={shuffleCards}>New Game</button>
+
+        <div className="px-6 py-12 grid grid-cols-2 md:grid-cols-4 md:px-12 lg:px-24 justify-center items-center gap-0 bg-red-600">
           {cards.map(card => (
-            <SingleCard key={card.id} card={card} />
+            <SingleCard 
+            key={card.id} 
+            card={card} 
+            handleChoice={handleChoice}
+            />
           ))}
         </div>
       </div>
