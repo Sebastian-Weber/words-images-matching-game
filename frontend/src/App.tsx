@@ -5,14 +5,14 @@ import '../src/assets/images/card_1.jpg'
 import SingleCard from './components/SingleCard';
 
 const cardImages = [
-  { "src": "/src/assets/images/card_1.jpg", matched: false, "alt": "Card 1" }, 
-  { "src": "/src/assets/images/card_2.jpg", matched: false, "alt": "Card 2" },
-  { "src": "/src/assets/images/card_3.jpg", matched: false, "alt": "Card 3" },
-  { "src": "/src/assets/images/card_4.jpg", matched: false, "alt": "Card 4" },
-  { "src": "/src/assets/images/card_5.jpg", matched: false, "alt": "Card 5" },
-  { "src": "/src/assets/images/card_6.jpg", matched: false, "alt": "Card 6" },
-  { "src": "/src/assets/images/card_7.jpg", matched: false, "alt": "Card 7" },
-  { "src": "/src/assets/images/card_8.jpg", matched: false, "alt": "Card 8" },
+  { "src": "/src/assets/images/card_1.jpg", matched: false, "alt": "Mountain bike Troopers" }, 
+  { "src": "/src/assets/images/card_2.jpg", matched: false, "alt": "Darth Vader" },
+  { "src": "/src/assets/images/card_3.jpg", matched: false, "alt": "Storm troopers lining up" },
+  { "src": "/src/assets/images/card_4.jpg", matched: false, "alt": "The Office" },
+  { "src": "/src/assets/images/card_5.jpg", matched: false, "alt": "4 storm troopers" },
+  { "src": "/src/assets/images/card_6.jpg", matched: false, "alt": "2 strom troopers" },
+  { "src": "/src/assets/images/card_7.jpg", matched: false, "alt": "Black and white" },
+  { "src": "/src/assets/images/card_8.jpg", matched: false, "alt": "Painting" },
 ]
 
 export default function App() {
