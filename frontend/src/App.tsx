@@ -21,15 +21,18 @@ export default function App() {
   const [turns, setTurns] = useState(0);
   const [choiceOne, setChoiceOne] = useState<{ id: number; src: string; alt: string; } | null>(null);
   const [choiceTwo, setChoiceTwo] = useState<{ id: number; src: string; alt: string; } | null>(null);
+  const [disabled, setDisabled] = useState(false);
 
-  //Shuffle Cards
+
+  // shuffle Cards
   const shuffleCards = () => {
-    const shuffleCards = [...cardImages, ...cardImages]
-      .sort(() => Math.random() - 0.5)
-      .map((card) => ({ ...card, id: Math.random() }))
+    const shuffleCards = [
+      ...cardImages.map(card => ({ ...card, id: Math.random(), isFirstSet: true })),
+      ...cardImages.map(card => ({ ...card, id: Math.random(), isFirstSet: false }))
+    ].sort(() => Math.random() - 0.5);
       
-      setCards(shuffleCards);
-      setTurns(0);
+    setCards(shuffleCards);
+    setTurns(0);
   }
 
 // handle a choice
@@ -44,6 +47,7 @@ const handleChoice = (card: { id: number; src: string; alt: string; }) => {
 // compare 2 selected cards
 useEffect(() => {
   if (choiceOne && choiceTwo) {
+    setDisabled(true)
 
     if (choiceOne.src === choiceTwo.src) {
       setCards(prevCards => {
@@ -57,20 +61,26 @@ useEffect(() => {
     })
       resetTurn()
     } else {
-      setTimeout(() => resetTurn(), 1000);
+      setTimeout(() => resetTurn(), 1000)
     }
   }
-}, [choiceOne, choiceTwo])
+}, [choiceOne, choiceTwo]);
 
 console.log(cards)
 
 
-//reset choices & increase turn
+// reset choices & increase turn
 const resetTurn = () => {
   setChoiceOne(null);
   setChoiceTwo(null);
   setTurns(prevTurns => prevTurns + 1);
+  setDisabled(false)
 }
+
+// start a new game automatically
+useEffect(() => {
+  shuffleCards()
+}, [])
 
   return (
     <>
@@ -80,16 +90,18 @@ const resetTurn = () => {
         </h1>
         <button onClick={shuffleCards}>New Game</button>
 
-        <div className="px-6 py-12 grid grid-cols-2 md:grid-cols-4 md:px-12 lg:px-24 justify-center items-center gap-0 bg-red-600">
+        <div className="px-2 py-12 grid gap-0 grid-cols-4 md:grid-cols-6 md:px-6 lg:px-64 lg:grid-cols-6 justify-center items-center  bg-red-600">
           {cards.map(card => (
             <SingleCard 
             key={card.id} 
             card={card} 
             handleChoice={handleChoice}
             flipped={card === choiceOne || card === choiceTwo || card.matched} 
+            disabled={disabled}
             />
           ))}
         </div>
+        <p>Turns: {turns}</p>
       </div>
     </>
   )
