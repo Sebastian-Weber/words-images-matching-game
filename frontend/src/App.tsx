@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import '../src/assets/images/card_1.jpg'
 import SingleCard from './components/SingleCard';
@@ -35,8 +35,31 @@ export default function App() {
 // handle a choice
 const handleChoice = (card: { id: number; src: string; alt: string; }) => {
 
-  choiceOne ? setChoiceTwo(card) : setChoiceOne(card);
-  // console.log(card)
+  if (choiceOne) {
+    setChoiceTwo(card);
+  } else {
+    setChoiceOne(card);
+  }
+}
+// compare 2 selected cards
+useEffect(() => {
+  if (choiceOne && choiceTwo) {
+    if (choiceOne.src === choiceTwo.src) {
+      console.log('those cards match')
+      resetTurn()
+    } else {
+      console.log('those cards do not match')
+      setTimeout(() => resetTurn(), 1000);
+    }
+  }
+}, [choiceOne, choiceTwo])
+
+
+//reset choices & increase turn
+const resetTurn = () => {
+  setChoiceOne(null);
+  setChoiceTwo(null);
+  setTurns(prevTurns => prevTurns + 1);
 }
 
   return (
