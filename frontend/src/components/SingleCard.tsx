@@ -4,7 +4,7 @@
 
 type CardProps = {
 
-  card: { id: number; src: string; alt: string; matched: boolean; isFirstSet?: boolean; };
+  card: { id: number; src: string; alt: string; matched: boolean; isFirstSet?: boolean; language?: string; description?: string; };
 
   handleChoice: (card: { id: number; src: string; alt: string; }) => void;
 
@@ -30,7 +30,12 @@ export default function SingleCard({ card, handleChoice, flipped, disabled }: Ca
       <div className={flipped ? "flipped" : ""}>
         <div className="front">
           {card.isFirstSet ? (
-            <span>{card.alt}</span>
+            <div className="card-texts-layout justify-around items-center">
+            <h3 className="card-heading">{card.alt}</h3>
+            <h4 className="card-subheading">{card.language}</h4>
+            <br></br>
+            <p className="card-description">{card.description}</p>
+            </div>
           ) : (
             <img 
               src={card.src} 
@@ -40,7 +45,7 @@ export default function SingleCard({ card, handleChoice, flipped, disabled }: Ca
         </div>
         <img 
           className="back" 
-          src="/src/assets/images/card_back.jpg"
+          src="/src/assets/images/card_back.png"
           onClick={handleClick}  
           alt="card back" 
         />

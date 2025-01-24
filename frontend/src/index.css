@@ -1,33 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto:wght@400;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+
+
+body {
+    background-color: #112528;
+}
+
+
+
+/* Base styles for smaller devices */
+  h1 {
+    font-size: 32px;
+  }
+  
+  h2 {
+    font-size: 24px;
+  }
+  
+  h3 {
+    font-size: 20px;
+  }
+  
+  h4 {
+    font-size: 18px;
+  }
+  
+  p {
+    font-size: 8px;
+  }
+  
+  /* Adjust for tablet portrait (min-width: 768px) */
+  @media (min-width: 768px) {
+    h1 {
+        font-size: 32px;
+      }
+      
+      h2 {
+        font-size: 24px;
+      }
+      
+      h3 {
+        font-size: 20px;
+      }
+      
+      h4 {
+        font-size: 18px;
+      }
+      
+      p {
+        font-size: 8px;
+      }
+  
+  /* Adjust for tablet landscape or small desktops (min-width: 1024px) */
+  @media (min-width: 1024px) {
+    h1 {
+      font-size: 48px;
+    }
+  
+    h2 {
+      font-size: 32px;
+    }
+    
+    h3 {
+      font-size: 14px;
+    }
+    
+    h4 {
+      font-size: 12px;
+    }
+    
+    p {
+      font-size: 4px;
+    }
+  }
+  }
+  /* Adjust for larger desktops (min-width: 1280px) */
+  @media (min-width: 1280px) {
+    h1 {
+      font-size: 64px;
+    }
+  
+    h2 {
+      font-size: 40px;
+    }
+  
+    h3 {
+      font-size: 32px;
+    }
+  
+    h4 {
+      font-size: 24px;
+    }
+  
+    p {
+      font-size: 22px;
+    }
+  }
+
+  
+
+
 .card {
     position: relative;
-    margin: 10px;
+    margin: 2px;
 }
 
 .card img {
     width: 100%;
     display: block;
-    border: 2px solid #fff;
-    border-radius: 6px;
+    border: 0px solid #fff;
+    border-radius: 0px;
 }
+
+.custom-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0px;
+    width: auto;
+    justify-items: start;
+}
+
+@media (min-width: 768px) {
+    .custom-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .custom-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (min-width: 1280px) {
+    .custom-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+@media (min-width: 1536px) {
+    .custom-grid {
+        grid-template-columns: repeat(5, 1fr);
+
+    }
+}
+
+.layout-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: aquamarine;
+}
+
+
+@media (min-width: 768px) {
+    .layout-wrapper {
+        margin-left: 5%;
+        justify-content: start;
+        justify-items: start;
+    }
+}
+
+.card-texts-layout {
+    margin: 4px;
+  }
+
 
 /*front of card - the picture */
 
 .front {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     text-align: center;
     align-items: center;
-    height: 100%;
-    background-color: skyblue;
-    color: aliceblue;
+    height:100%;
+    background-color: #B9D7D6;
+    font-family: 'Inter', sans-serif;
+    color: #2C4D51;
     width: 100%;
     height: 100%;
     cursor: default;
-    padding: 1rem;
+    padding: 0rem;
   }
 .card .front {
     transform: rotateY(90deg);
@@ -37,6 +197,57 @@
 .flipped .front {
     transform: rotateY(0deg);
     transition-delay: 0.2s;
+}
+
+.page-title {
+    font-family: 'Noto Serif', serif;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+.page-subheading {
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 1.3rem; /* 40px */
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+}
+
+.page-description {
+    font-family: 'Noto Serif', serif;
+    font-size: 1.3rem; /* 40px */
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+}
+
+.card-heading {
+    font-family: 'Noto Serif', serif;
+    font-size: 1.3rem; /* 40px */
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+}
+
+.card-subheading {
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 1rem; /* 20px */
+    font-weight: 400;
+    font-style: italic;
+    margin: 0;
+    padding: 0;
+}
+
+.card-description {
+    font-family: 'Noto Serif', serif;
+    font-size: 0.8rem; /* 12.8px */
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
 }
 
 /*front of card - cover */
