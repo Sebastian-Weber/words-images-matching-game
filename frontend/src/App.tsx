@@ -127,8 +127,8 @@ useEffect(() => {
               md:grid-cols-5 
               md:px-16
 
-              lg:px-48
               lg:grid-cols-5 
+              lg:px-48
               
               2xl:grid-cols-6
               2xl:px-64

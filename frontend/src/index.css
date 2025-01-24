@@ -82,7 +82,7 @@ body {
   /* Adjust for larger desktops (min-width: 1280px) */
   @media (min-width: 1280px) {
     h1 {
-      font-size: 64px;
+      font-size: 48px;
     }
   
     h2 {
@@ -211,7 +211,6 @@ body {
 
 .page-subheading {
     font-family: 'Noto Sans', sans-serif;
-    font-size: 1.3rem; /* 40px */
     font-weight: 700;
     margin: 0;
     padding: 0;
@@ -219,7 +218,6 @@ body {
 
 .page-description {
     font-family: 'Noto Serif', serif;
-    font-size: 1.3rem; /* 40px */
     font-weight: 700;
     margin: 0;
     padding: 0;
