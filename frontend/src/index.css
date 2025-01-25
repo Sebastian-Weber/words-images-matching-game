@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -14,11 +15,22 @@
 .container {
   margin: 0 auto; /* Center horizontally */
   max-width: 1400px; /* Limit the width */
-  padding: 0 15px; /* Add padding for spacing */
+  padding: 0 0px; /* Add padding for spacing */
 }
 
 body {
-    background-color: #112528;
+    background-color: #F9F8F6;
+    color: #333230;
+}
+
+button {
+  background-color: #2C4D51;
+  color: #F9F8F6;
+  font-weight:600; /* Make caption bold */
+  border-radius: 8px; /* Add rounded corners */
+  padding: 8px 16px; /* Add padding for better appearance */
+  border: none; /* Remove default border */
+  cursor: pointer; /* Change cursor to pointer */
 }
 
 
@@ -26,6 +38,7 @@ body {
 /* Base styles for smaller devices */
   h1 {
     font-size: 32px;
+    color: #2C4D51;
   }
   
   h2 {
@@ -41,8 +54,10 @@ body {
   }
   
   p {
-    font-size: 8px;
+    font-size: 16px;
+    font-weight: 100;
   }
+
   
   /* Adjust for tablet portrait (min-width: 768px) */
   @media (min-width: 768px) {
@@ -63,7 +78,8 @@ body {
       }
       
       p {
-        font-size: 8px;
+        font-size: 16px;
+        font-weight: 100;
       }
   
   /* Adjust for tablet landscape or small desktops (min-width: 1024px) */
@@ -85,14 +101,15 @@ body {
     }
     
     p {
-      font-size: 4px;
+      font-size: 16px;
+      font-weight: 100;
     }
   }
   }
   /* Adjust for larger desktops (min-width: 1280px) */
   @media (min-width: 1280px) {
     h1 {
-      font-size: 40px;
+      font-size: 48px;
     }
   
     h2 {
@@ -109,7 +126,9 @@ body {
   
     p {
       font-size: 16px;
+      font-weight: 100;
     }
+
   }
 
   
@@ -129,7 +148,7 @@ body {
 
 .custom-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 0px;
     width: auto;
     justify-items: start;
@@ -137,19 +156,19 @@ body {
 
 @media (min-width: 768px) {
     .custom-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
     }
 }
 
 @media (min-width: 1024px) {
     .custom-grid {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(5, 1fr);
     }
 }
 
 @media (min-width: 1280px) {
     .custom-grid {
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat(6, 1fr);
     }
 }
 
@@ -210,32 +229,40 @@ body {
 }
 
 .page-title {
-    font-family: 'Noto Serif', serif;
+    /* font-family: 'Noto Serif', serif; */
+    font-family: 'Poppins', sans-serif;
     font-weight: 700;
     margin: 0;
     padding: 0;
 }
 
-
-
-
 .page-subheading {
     font-family: 'Noto Sans', sans-serif;
-    font-weight: 700;
+    font-weight: 600;
+    color: #2C4D51;
     margin: 0;
     padding: 0;
 }
 
 .page-description {
     font-family: 'Noto Serif', serif;
-    font-weight: 700;
+    font-weight: 200;
     margin: 0;
     padding: 0;
 }
 
+.page-counter {
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  color: #2C4D51;
+}
+
+
 .card-heading {
     font-family: 'Noto Serif', serif;
-    font-size: 1.3rem; /* 40px */
+    font-size: 1.1rem;
     font-weight: 700;
     margin: 0;
     padding: 0;
