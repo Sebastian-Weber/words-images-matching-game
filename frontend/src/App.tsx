@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 import '../src/assets/images/card_1.jpg'
 import SingleCard from './components/SingleCard';
 
+const descriptionText = "Explore unique concepts, emotions, or ideas from different languages that defy direct translation. Each card in the game reveals a cultural gem — either an image or a word. Find the matching pairs to capture those unique concepts, emotions, or ideas that resonate deeply within their origins. Dive into the essence of these words and uncover a new perspective on language and meaning.";
+
 const cardImages = [
   // { "src": "/src/assets/images/card_1.jpg", matched: false, "alt": "Mountain bike Troopers" }, 
   // { "src": "/src/assets/images/card_2.jpg", matched: false, "alt": "Darth Vader" },
@@ -93,46 +95,34 @@ useEffect(() => {
 
   return (
     <>
-      <div className='flex flex-col items-center justify-center  bg-blue-300'>
-        <div className=''>
+    <div className="wrapper">
+      <div className="container">
+        <div className='flex flex-col items-start justify-start h-screen w-auto bg-blue-300'>
 
-          <div className='flex flex-col items-start justify-start bg-yellow-300'>
+          <div className='flex flex-col justify-center items-center w-full bg-purple-400'>
 
-          <div className='flex flex-row bg-purple-800'>
-            <div className='flex flex-row justify-center w-screen p-7 bg-purple-400'>
-              <div className='flex flex-col bg-blue-500'>
-                <h1 className="page-title px-6 py-2">
-                  Lost in Translation
-                </h1>
-                <h2 className="page-subtitle">Test2</h2>
-                <br></br>
-                <p className='page-description'>test3</p>
-                <br></br>
+              <div className='flex flex-col p-2 bg-blue-500'>
+                <div className='w-2/3'>
+                  <h1 className="page-title px-6 py-2">
+                    Lost in Translation
+                  </h1>
+                  <h2 className="page-subtitle">Discover the intranslatable words of the world.</h2>
+                  <br></br>
+                  <p className='page-description'>{descriptionText}</p>
+                </div>
               </div>
 
-              <div className='flex flex-col bg-orange-400'>
+              <div className='flex flex-row w-1/3 p-2 justify-between items-center  bg-orange-400'>
                 <button onClick={shuffleCards}>New Game</button>
                 <p>Turns: {turns}</p>
               </div>
-            </div>
-           </div> 
 
+          </div>
 
-{/* 
-            <div className='custom-grid bg-green-400'> */}
-              <div className="px-2 py-12 
-              grid gap-0 
-              grid-cols-3 
+          
+          <div className='flex flex-col justify-center items-center  p-2 bg-green-400'>
 
-              md:grid-cols-5 
-              md:px-16
-
-              lg:grid-cols-5 
-              lg:px-48
-              
-              2xl:grid-cols-6
-              2xl:px-64
-              justify-center items-center  bg-red-600">
+          <div className="custom-grid">
 
                 {cards.map(card => (
                   <SingleCard 
@@ -144,9 +134,12 @@ useEffect(() => {
                   />
                 ))}
             </div>
+
           </div>
+
         </div>
       </div>
+    </div>
     </>
   )
 }

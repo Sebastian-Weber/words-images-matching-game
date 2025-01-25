@@ -5,7 +5,17 @@
 @tailwind components;
 @tailwind utilities;
 
-
+.wrapper {
+  display: flex; /* Use Flexbox for alignment */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 100vh; /* Full height of the viewport */
+}
+.container {
+  margin: 0 auto; /* Center horizontally */
+  max-width: 1400px; /* Limit the width */
+  padding: 0 15px; /* Add padding for spacing */
+}
 
 body {
     background-color: #112528;
@@ -82,11 +92,11 @@ body {
   /* Adjust for larger desktops (min-width: 1280px) */
   @media (min-width: 1280px) {
     h1 {
-      font-size: 48px;
+      font-size: 40px;
     }
   
     h2 {
-      font-size: 40px;
+      font-size: 24px;
     }
   
     h3 {
@@ -98,7 +108,7 @@ body {
     }
   
     p {
-      font-size: 22px;
+      font-size: 16px;
     }
   }
 
@@ -145,7 +155,7 @@ body {
 
 @media (min-width: 1536px) {
     .custom-grid {
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat(6, 1fr);
 
     }
 }
