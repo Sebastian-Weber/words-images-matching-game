@@ -1,29 +1,33 @@
 
-import { useState, useEffect } from 'react';
 
 import '../src/assets/images/card_1.jpg'
-import SingleCard from './components/SingleCard';
+import SingleCard from '../src/components/SingleCard';
+
+
+import { useState, useEffect } from 'react';
+
+import boketto from '../src/assets/images/boketto.png';
+import gluggavedur from '../src/assets/images/gluggaveður.png';
+import hanyauku from '../src/assets/images/hanyauku.png';
+import komorebi from '../src/assets/images/komorebi.png';
+import mamihlapinatapai from '../src/assets/images/mamihlapinatapai.png';
+import petrichor from '../src/assets/images/petrichor.png';
+import tsundoku from '../src/assets/images/tsundoku.png';
+import uitwaaien from '../src/assets/images/uitwaaien.png';
+import wabisabi from '../src/assets/images/wabi-sabi.png';
 
 const descriptionText = "Each card reveals a unique cultural gem — either an image or a word. Discover ideas, emotions and concepts from different languages that defy direct translation and get to know intranslatable words of the world by finding the matching pairs.";
 
 const cardImages = [
-  // { "src": "/src/assets/images/card_1.jpg", matched: false, "alt": "Mountain bike Troopers" }, 
-  // { "src": "/src/assets/images/card_2.jpg", matched: false, "alt": "Darth Vader" },
-  // { "src": "/src/assets/images/card_3.jpg", matched: false, "alt": "Storm troopers lining up" },
-  // { "src": "/src/assets/images/card_4.jpg", matched: false, "alt": "The Office" },
-  // { "src": "/src/assets/images/card_5.jpg", matched: false, "alt": "4 storm troopers" },
-  // { "src": "/src/assets/images/card_6.jpg", matched: false, "alt": "2 strom troopers" },
-  // { "src": "/src/assets/images/card_7.jpg", matched: false, "alt": "Black and white" },
-  // { "src": "/src/assets/images/card_8.jpg", matched: false, "alt": "Painting" },
-  { "src": "/src/assets/images/boketto.png", matched: false, "alt": "boketto", language: "japanese", description: "The act of gazing vacantly into the distance, lost in thought." },
-  { "src": "/src/assets/images/gluggaveður.png", matched: false, "alt": "gluggaveður", language: "icelandic", description: "Weather that looks appealing from inside but would be unpleasant to be outside in." },
-  { "src": "/src/assets/images/hanyauku.png", matched: false, "alt": "hanyauku", language: "kwangali, namibia", description: "The act of walking on tiptoes across warm sand" },
-  { "src": "/src/assets/images/komorebi.png", matched: false, "alt": "komorebi", language: "japanese", description: "The dappled light that filters through the leaves of trees." },
-  { "src": "/src/assets/images/mamihlapinatapai.png", matched: false, "alt": "mamihlapinatapai", language: "yaghan", description: "The meaningful look shared by two people who both desire something but are reluctant to initiate." },
-  { "src": "/src/assets/images/petrichor.png", matched: false, "alt": "petrichor", language: "greek", description: "A pleasant earthy odor linked to rainfall after warmth and dryness." },
-  { "src": "/src/assets/images/tsundoku.png", matched: false, "alt": "tsundoku", language: "japanese", description: "The act of acquiring books and letting them pile up without reading them." },
-  { "src": "/src/assets/images/uitwaaien.png", matched: false, "alt": "uitwaaien", language: "dutch", description: "To go out into the wind to refresh your mind or clear your head." },
-  { "src": "/src/assets/images/wabi-sabi.png", matched: false, "alt": "wabi-sabi", language: "japanese", description: "The beauty of imperfection, impermanence, and the incomplete." },
+  { "src": boketto, matched: false, "alt": "boketto", language: "japanese", description: "The act of gazing vacantly into the distance, lost in thought." },
+  { "src": gluggavedur, matched: false, "alt": "gluggaveður", language: "icelandic", description: "Weather that looks appealing from inside but would be unpleasant to be outside in." },
+  { "src": hanyauku, matched: false, "alt": "hanyauku", language: "kwangali, namibia", description: "The act of walking on tiptoes across warm sand" },
+  { "src": komorebi, matched: false, "alt": "komorebi", language: "japanese", description: "The dappled light that filters through the leaves of trees." },
+  { "src": mamihlapinatapai, matched: false, "alt": "mamihlapinatapai", language: "yaghan", description: "The meaningful look shared by two people who both desire something but are reluctant to initiate." },
+  { "src": petrichor, matched: false, "alt": "petrichor", language: "greek", description: "A pleasant earthy odor linked to rainfall after warmth and dryness." },
+  { "src": tsundoku, matched: false, "alt": "tsundoku", language: "japanese", description: "The act of acquiring books and letting them pile up without reading them." },
+  { "src": uitwaaien, matched: false, "alt": "uitwaaien", language: "dutch", description: "To go out into the wind to refresh your mind or clear your head." },
+  { "src": wabisabi, matched: false, "alt": "wabi-sabi", language: "japanese", description: "The beauty of imperfection, impermanence, and the incomplete." },
 ]
 
 export default function App() {
@@ -120,16 +124,16 @@ useEffect(() => {
           
           <div className='flex flex-col justify-center items-center'>
             <div className="custom-grid">
-                  {cards.map(card => (
-                    <SingleCard 
-                    key={card.id} 
-                    card={card} 
-                    handleChoice={handleChoice}
-                    flipped={card === choiceOne || card === choiceTwo || card.matched} 
-                    disabled={disabled}
-                    />
-                  ))}
-              </div>
+              {cards.map(card => (
+                <SingleCard 
+                  key={card.id} 
+                  card={card} 
+                  handleChoice={handleChoice} 
+                  flipped={card === choiceOne || card === choiceTwo || card.matched} 
+                  disabled={disabled}
+                />
+              ))}
+            </div>
           </div>
 
         </div>
