@@ -1,6 +1,7 @@
 
 
 
+import cardBack from '../assets/images/card_back.png';
 
 type CardProps = {
 
@@ -45,7 +46,7 @@ export default function SingleCard({ card, handleChoice, flipped, disabled }: Ca
         </div>
         <img 
           className="back" 
-          src="/src/assets/images/card_back.png"
+          src={cardBack}
           onClick={handleClick}  
           alt="card back" 
         />
