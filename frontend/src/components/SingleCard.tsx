@@ -34,7 +34,6 @@ export default function SingleCard({ card, handleChoice, flipped, disabled }: Ca
             <div className="card-texts-layout justify-around items-center">
             <h3 className="card-heading">{card.alt}</h3>
             <h4 className="card-subheading">{card.language}</h4>
-            <br></br>
             <p className="card-description">{card.description}</p>
             </div>
           ) : (

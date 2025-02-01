@@ -24,9 +24,13 @@ body {
 }
 
 button {
+  display: flex; /* Ensure content is displayed in a row */
+  flex-direction: row; /* Set direction to row */
+  align-items: center; /* Center items vertically */
+  justify-content: center; /* Center items horizontally */
   background-color: #2C4D51;
   color: #F9F8F6;
-  font-weight:600; /* Make caption bold */
+  font-weight: bold; /* Make caption bold */
   border-radius: 8px; /* Add rounded corners */
   padding: 8px 16px; /* Add padding for better appearance */
   border: none; /* Remove default border */
@@ -262,27 +266,49 @@ button {
 
 .card-heading {
     font-family: 'Noto Serif', serif;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 700;
     margin: 0;
     padding: 0;
 }
+/* Adjust for tablet portrait (min-width: 768px) */
+@media (min-width: 768px) {
+  .card-heading {
+    font-size: 1.6rem; /* 16px */
+    margin-top: 1rem;
+  }
+}
+
 
 .card-subheading {
     font-family: 'Noto Sans', sans-serif;
-    font-size: 1rem; /* 20px */
+    font-size: 0.8rem;
     font-weight: 400;
     font-style: italic;
     margin: 0;
     padding: 0;
 }
+/* Adjust for tablet portrait (min-width: 768px) */
+@media (min-width: 768px) {
+  .card-subheading {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+  }
+}
 
 .card-description {
     font-family: 'Noto Serif', serif;
-    font-size: 0.8rem; /* 12.8px */
     font-weight: 400;
-    margin: 0;
+    font-size: 0.7rem;
+    margin-top: 0.25rem;
     padding: 0;
+}
+/* Adjust for tablet portrait (min-width: 768px) */
+@media (min-width: 768px) {
+  .card-description {
+    font-size: 1rem;
+    margin-top: 1rem;
+  }
 }
 
 /*front of card - cover */
