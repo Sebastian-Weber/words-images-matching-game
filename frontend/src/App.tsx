@@ -23,7 +23,7 @@ const cardImages = [
   { "src": gluggavedur, matched: false, "alt": "gluggaveður", language: "icelandic", description: "Weather that looks appealing from inside but would be unpleasant to be outside in." },
   { "src": hanyauku, matched: false, "alt": "hanyauku", language: "kwangali, namibia", description: "The act of walking on tiptoes across warm sand" },
   { "src": komorebi, matched: false, "alt": "komorebi", language: "japanese", description: "The dappled light that filters through the leaves of trees." },
-  { "src": mamihlapinatapai, matched: false, "alt": "mamihlapinatapai", language: "yaghan", description: "The meaningful look shared by two people who both desire something but are reluctant to initiate." },
+  { "src": mamihlapinatapai, matched: false, "alt": "mamihlapinatapai", language: "yaghan", description: "The look shared by two people who both desire something but are reluctant to initiate." },
   { "src": petrichor, matched: false, "alt": "petrichor", language: "greek", description: "A pleasant earthy odor linked to rainfall after warmth and dryness." },
   { "src": tsundoku, matched: false, "alt": "tsundoku", language: "japanese", description: "The act of acquiring books and letting them pile up without reading them." },
   { "src": uitwaaien, matched: false, "alt": "uitwaaien", language: "dutch", description: "To go out into the wind to refresh your mind or clear your head." },
@@ -112,7 +112,7 @@ useEffect(() => {
                   <h1 className="page-title">Lost in Translation</h1>
                   <p className='page-description'>{descriptionText}</p>
                   <br></br>
-                  <div className='flex flex-row p-2 w-1/2 justify-between items-center'>
+                  <div className='flex flex-row p-2 justify-around md:justify-between md:w-1/3 items-center'>
                     <button onClick={shuffleCards}>New Game</button>
                     <h4 className='page-counter'>Turns: {turns}</h4>
                   </div>
