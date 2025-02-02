@@ -80,7 +80,7 @@ const resetTurn = () => {
         </h1>
         <button onClick={shuffleCards}>New Game</button>
 
-        <div className="px-6 py-12 grid grid-cols-2 md:grid-cols-4 md:px-12 lg:px-24 justify-center items-center gap-0 bg-red-600">
+        <div className="px-6 py-12 grid grid-cols-2 md:grid-cols-4 md:px-12 lg:px-24 justify-center items-center gap-0">
           {cards.map(card => (
             <SingleCard 
             key={card.id} 
